@@ -63,6 +63,17 @@ class ppde_module
 		$this->page_title = 'PPDE_ACP_' . strtoupper($mode);
 		$this->tpl_name = 'ppde_' . strtolower($mode);
 
+		// Extension version, displayed as a badge at the top of each ACP page
+		try
+		{
+			$metadata = $phpbb_container->get('ext.manager')->create_extension_metadata_manager('skouat/ppde')->get_metadata('all');
+			$phpbb_container->get('template')->assign_var('PPDE_EXT_VERSION', $metadata['version'] ?? '');
+		}
+		catch (\Exception $e)
+		{
+			// The badge is purely cosmetic: ignore metadata errors.
+		}
+
 		$this->switch_mode($id, $mode, $admin_controller);
 	}
 

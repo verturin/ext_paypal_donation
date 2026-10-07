@@ -1,0 +1,85 @@
+/* PayPal Donation - ACP presentation (boxed fieldsets, icon legends, version badge) */
+
+.ppde-version {
+	margin: 0 0 12px;
+}
+
+.ppde-badge {
+	display: inline-block;
+	overflow: hidden;
+	border-radius: 3px;
+	font-size: 11px;
+	line-height: 16px;
+	color: #fff;
+	vertical-align: middle;
+}
+
+.ppde-badge-label,
+.ppde-badge-value {
+	display: inline-block;
+	padding: 0 6px;
+}
+
+.ppde-badge-label {
+	background: #555;
+}
+
+.ppde-badge-value {
+	background: #4c9a1e;
+}
+
+/* Main boxes */
+#main fieldset {
+	margin: 18px 0;
+	padding: 14px 10px 10px;
+	border: 1px solid #d0d4d9;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 2px 2px 0 #b9bec5;
+}
+
+#main fieldset legend {
+	margin-left: 10px;
+	padding: 3px 8px;
+	border: 1px solid #d0d4d9;
+	border-radius: 6px;
+	background: #fff;
+	color: #115098;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+#main fieldset legend .icon {
+	color: #115098;
+}
+
+/* Nested boxes stay lighter */
+#main fieldset fieldset {
+	margin: 12px 6px;
+	border-radius: 8px;
+	background: #fafbfc;
+	box-shadow: none;
+}
+
+/* Fieldsets used by phpBB for buttons, filters and quick actions keep their flat look */
+#main fieldset.quick,
+#main fieldset.display-options {
+	margin: 8px 0;
+	padding: 4px 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+}
+
+#main fieldset.submit-buttons {
+	padding: 10px;
+	text-align: center;
+}
+
+/* Group selection */
+.ppde-groups label {
+	display: block;
+	padding: 2px 0;
+	white-space: nowrap;
+}

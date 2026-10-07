@@ -20,6 +20,7 @@ services:
             - '@user'
             - '%core.root_path%'
             - '%core.php_ext%'
+            - '@dbal.conn'
 
     skouat.ppde.actions.currency:
         class: skouat\ppde\actions\currency

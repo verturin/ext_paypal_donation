@@ -1,6 +1,7 @@
 {% INCLUDE 'overall_header.html' %}
 
 <h1>{{ lang('PPDE_OVERVIEW') }}</h1>
+{% INCLUDE '@skouat_ppde/ppde_acp_head.html' %}
 
 <table>
 	<caption>{{ lang('PPDE_STATS') }}</caption>
@@ -76,7 +77,7 @@
 
 {% if S_ACTION_OPTIONS %}
 <fieldset>
-	<legend>{{ lang('STAT_RESYNC_OPTIONS') }}</legend>
+	<legend><i class="icon fa-refresh fa-fw" aria-hidden="true"></i> {{ lang('STAT_RESYNC_OPTIONS') }}</legend>
 
 	<form id="action_stats_form" method="post" action="{{ U_ACTION }}">
 		<dl>
@@ -126,7 +127,7 @@
 
 {% if S_ACTION_OPTIONS %}
 <fieldset>
-	<legend>{{ lang('PPDE_ESI_RESYNC_OPTIONS') }}</legend>
+	<legend><i class="icon fa-refresh fa-fw" aria-hidden="true"></i> {{ lang('PPDE_ESI_RESYNC_OPTIONS') }}</legend>
 	<form id="action_date_form" method="post" action="{{ U_ACTION }}">
 		<dl>
 			<dt><label for="action_date">{{ lang('STAT_RESET_DATE') }}</label><br><span>{{ lang('STAT_RESET_DATE_EXPLAIN') }}</span></dt>

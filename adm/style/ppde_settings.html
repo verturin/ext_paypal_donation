@@ -1,6 +1,7 @@
 {% INCLUDE 'overall_header.html' %}
 
 <h1>{{ lang('PPDE_SETTINGS') }}</h1>
+{% INCLUDE '@skouat_ppde/ppde_acp_head.html' %}
 
 <p>{{ lang('PPDE_SETTINGS_EXPLAIN') }}</p>
 
@@ -15,7 +16,7 @@
 <form id="ppde_settings" method="post" action="{{ U_ACTION }}">
 
 	<fieldset>
-		<legend>{{ lang('PPDE_LEGEND_GENERAL_SETTINGS') }}</legend>
+		<legend><i class="icon fa-cog fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_GENERAL_SETTINGS') }}</legend>
 		<dl>
 			<dt><label for="ppde_enable">{{ lang('PPDE_ENABLE') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_ENABLE_EXPLAIN') }}</span></dt>
 			<dd><label><input type="radio" class="radio" id="ppde_enable" name="ppde_enable" value="1"{% if S_PPDE_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
@@ -70,9 +71,20 @@
 		</dl>
 	</fieldset>
 	<fieldset>
-		<legend>{{ lang('PPDE_LEGEND_STATS_SETTINGS') }}</legend>
+		<legend><i class="icon fa-users fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_DISPLAY_GROUPS') }}</legend>
+		<dl>
+			<dt><label>{{ lang('PPDE_DISPLAY_GROUPS') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_DISPLAY_GROUPS_EXPLAIN') }}</span></dt>
+			<dd class="ppde-groups">
+				{% for group in loops.display_groups %}
+				<label><input type="checkbox" class="radio" name="ppde_display_groups[]" value="{{ group.GROUP_ID }}"{% if group.S_SELECTED %} checked{% endif %}> {% if group.S_SPECIAL %}<strong>{{ group.GROUP_NAME }}</strong>{% else %}{{ group.GROUP_NAME }}{% endif %}</label>
+				{% endfor %}
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend><i class="icon fa-bar-chart fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_STATS_SETTINGS') }}</legend>
 		<fieldset>
-			<legend>{{ lang('PPDE_RAISED') }}</legend>
+			<legend><i class="icon fa-money fa-fw" aria-hidden="true"></i> {{ lang('PPDE_RAISED') }}</legend>
 			<dl>
 				<dt><label for="ppde_raised_enable">{{ lang('ENABLE') ~ lang('COLON') }}</label></dt>
 				<dd><label><input type="radio" class="radio" id="ppde_raised_enable" name="ppde_raised_enable" value="1"{% if S_PPDE_RAISED_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
@@ -84,7 +96,7 @@
 			</dl>
 		</fieldset>
 		<fieldset>
-			<legend>{{ lang('PPDE_GOAL') }}</legend>
+			<legend><i class="icon fa-bullseye fa-fw" aria-hidden="true"></i> {{ lang('PPDE_GOAL') }}</legend>
 			<dl>
 				<dt><label for="ppde_goal_enable">{{ lang('ENABLE') ~ lang('COLON') }}</label></dt>
 				<dd><label><input type="radio" class="radio" id="ppde_goal_enable" name="ppde_goal_enable" value="1"{% if S_PPDE_GOAL_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
@@ -96,7 +108,7 @@
 			</dl>
 		</fieldset>
 		<fieldset>
-			<legend>{{ lang('PPDE_USED') }}</legend>
+			<legend><i class="icon fa-shopping-cart fa-fw" aria-hidden="true"></i> {{ lang('PPDE_USED') }}</legend>
 			<dl>
 				<dt><label for="ppde_used_enable">{{ lang('ENABLE') ~ lang('COLON') }}</label></dt>
 				<dd><label><input type="radio" class="radio" id="ppde_used_enable" name="ppde_used_enable" value="1"{% if S_PPDE_USED_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>

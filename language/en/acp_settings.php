@@ -61,6 +61,11 @@ $lang = array_merge($lang, [
 	'PPDE_HEADER_LINK'                => 'Display the “Donations” link in the header',
 	'PPDE_LEGEND_GENERAL_SETTINGS'    => 'General Settings',
 
+	// Display by groups
+	'PPDE_DISPLAY_GROUPS'             => 'Allowed groups',
+	'PPDE_DISPLAY_GROUPS_EXPLAIN'     => 'Only members of the ticked groups will see the PayPal donation features (“Donations” link, donation page and donation stats on index).<br>If no group is ticked, all groups are concerned. The “Can make a donation” permission is still required.',
+	'PPDE_LEGEND_DISPLAY_GROUPS'      => 'Display by groups',
+
 	// Stats Donation settings
 	'PPDE_AMOUNT'                     => 'Amount',
 	'PPDE_DECIMAL_EXPLAIN'            => 'Use “.” as decimal symbol.', // Note for translator: do not translate the decimal symbol

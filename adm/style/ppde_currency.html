@@ -1,6 +1,7 @@
 {% INCLUDE 'overall_header.html' %}
 
 <h1>{{ lang('PPDE_DC_CONFIG') }}</h1>
+{% INCLUDE '@skouat_ppde/ppde_acp_head.html' %}
 <p>{{ lang('PPDE_DC_CONFIG_EXPLAIN') }}</p>
 
 {% if S_ADD_EDIT %}
@@ -16,7 +17,7 @@
 
 <form id="add_edit_currency" method="post" action="{{ U_ACTION }}">
 	<fieldset>
-		<legend>{{ lang('GENERAL_OPTIONS') }}</legend>
+		<legend><i class="icon fa-cog fa-fw" aria-hidden="true"></i> {{ lang('GENERAL_OPTIONS') }}</legend>
 		<dl>
 			<dt><label for="currency_name">{{ lang('PPDE_DC_NAME') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_DC_NAME_EXPLAIN') }}</span></dt>
 			<dd><input id="currency_name" name="currency_name" type="text" class="text medium" value="{{ CURRENCY_NAME }}"></dd>

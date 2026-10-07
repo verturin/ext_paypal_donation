@@ -89,7 +89,7 @@ class listener implements EventSubscriberInterface
 	 */
 	public function load_index_data(): void
 	{
-		if ($this->config['ppde_enable'] && $this->config['ppde_stats_index_enable'])
+		if ($this->config['ppde_enable'] && $this->config['ppde_stats_index_enable'] && $this->ppde_controller_main->ppde_actions_auth->is_in_allowed_groups())
 		{
 			$this->template->assign_vars([
 				'PPDE_STATS_INDEX_ENABLE' => $this->config['ppde_stats_index_enable'],

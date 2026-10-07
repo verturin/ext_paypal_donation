@@ -3,6 +3,7 @@
 <a id="maincontent"></a>
 
 <h1>{{ lang('PPDE_DP_CONFIG') }}</h1>
+{% INCLUDE '@skouat_ppde/ppde_acp_head.html' %}
 <p>{{ lang('PPDE_DP_CONFIG_EXPLAIN') }}</p>
 
 {% if S_ADD_EDIT %}
@@ -26,14 +27,14 @@
 
 {% if S_PPDE_DP_PREVIEW %}
 <fieldset>
-	<legend>{{ lang('PREVIEW') }}</legend>
+	<legend><i class="icon fa-eye fa-fw" aria-hidden="true"></i> {{ lang('PREVIEW') }}</legend>
 	<div class="ppde-preview">{{ PPDE_DP_PREVIEW }}</div>
 </fieldset>
 {% endif %}
 
 <form id="add_edit_donation_pages" method="post" action="{{ U_ACTION }}">
 	<fieldset>
-		<legend>{{ lang('DONATION_PAGES_TITLE') }}</legend>
+		<legend><i class="icon fa-file-text-o fa-fw" aria-hidden="true"></i> {{ lang('DONATION_PAGES_TITLE') }}</legend>
 		<p>{{ lang('DONATION_PAGES_TITLE_EXPLAIN') }}</p>
 		{% if S_BBCODE_ALLOWED %}
 		<dl class="responsive-columns">

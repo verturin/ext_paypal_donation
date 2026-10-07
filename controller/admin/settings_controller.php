@@ -38,6 +38,8 @@ class settings_controller extends admin_main
 	protected $ppde_actions_auth;
 	protected $ppde_actions_currency;
 	protected $ppde_actions_locale;
+	protected $db;
+	protected $group_helper;
 
 	/**
 	 * Constructor
@@ -63,7 +65,9 @@ class settings_controller extends admin_main
 		locale_icu $ppde_actions_locale,
 		request $request,
 		template $template,
-		user $user
+		user $user,
+		\phpbb\db\driver\driver_interface $db,
+		\phpbb\group\helper $group_helper
 	)
 	{
 		$this->config = $config;
@@ -75,6 +79,8 @@ class settings_controller extends admin_main
 		$this->request = $request;
 		$this->template = $template;
 		$this->user = $user;
+		$this->db = $db;
+		$this->group_helper = $group_helper;
 		parent::__construct(
 			'settings',
 			'PPDE_SETTINGS',
@@ -101,6 +107,7 @@ class settings_controller extends admin_main
 		$this->ppde_actions_currency->build_currency_select_menu((int) $this->config['ppde_default_currency']);
 		$this->ppde_actions_locale->build_locale_select_menu($this->config['ppde_default_locale']);
 		$this->build_stat_position_select_menu($this->config['ppde_stats_position']);
+		$this->build_display_groups_list($this->ppde_actions_auth->get_allowed_groups());
 
 		$this->template->assign_vars([
 			// Global Settings vars
@@ -138,6 +145,11 @@ class settings_controller extends admin_main
 		$this->config->set('ppde_dropbox_value', $this->rebuild_items_list($this->request->variable('ppde_dropbox_value', '1,2,3,4,5,10,20,25,50,100'), (int) $this->config['ppde_default_value']));
 		$this->config->set('ppde_enable', $this->request->variable('ppde_enable', false));
 		$this->config->set('ppde_header_link', $this->request->variable('ppde_header_link', false));
+
+		// Groups allowed to see the donation features (empty = all groups)
+		$display_groups = array_unique(array_filter(array_map('intval', $this->request->variable('ppde_display_groups', [0]))));
+		sort($display_groups);
+		$this->config->set('ppde_display_groups', implode(',', $display_groups));
 
 		// Set options for Statistics Settings
 		$this->config->set('ppde_stats_index_enable', $this->request->variable('ppde_stats_index_enable', false));
@@ -196,6 +208,32 @@ class settings_controller extends admin_main
 		{
 			$array[] = $var;
 		}
+	}
+
+	/**
+	 * Build the list of groups that can be allowed to see the donation features
+	 *
+	 * @param int[] $selected Group ids currently selected.
+	 *
+	 * @return void
+	 * @access public
+	 */
+	public function build_display_groups_list(array $selected): void
+	{
+		$sql = 'SELECT group_id, group_name, group_type
+			FROM ' . GROUPS_TABLE . '
+			ORDER BY group_type DESC, group_name ASC';
+		$result = $this->db->sql_query($sql);
+		while ($row = $this->db->sql_fetchrow($result))
+		{
+			$this->template->assign_block_vars('display_groups', [
+				'GROUP_ID'   => (int) $row['group_id'],
+				'GROUP_NAME' => $this->group_helper->get_name($row['group_name']),
+				'S_SPECIAL'  => (int) $row['group_type'] === GROUP_SPECIAL,
+				'S_SELECTED' => in_array((int) $row['group_id'], $selected, true),
+			]);
+		}
+		$this->db->sql_freeresult($result);
 	}
 
 	/**

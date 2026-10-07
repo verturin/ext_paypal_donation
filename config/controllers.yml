@@ -113,6 +113,8 @@ services:
             - '@request'
             - '@template'
             - '@user'
+            - '@dbal.conn'
+            - '@group_helper'
 
     skouat.ppde.controller.admin.paypal_features:
         class: skouat\ppde\controller\admin\paypal_features_controller

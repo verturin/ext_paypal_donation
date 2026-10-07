@@ -61,6 +61,11 @@ $lang = array_merge($lang, [
 	'PPDE_HEADER_LINK'                => 'Afficher le lien « Faire un don » dans l’entête du forum',
 	'PPDE_LEGEND_GENERAL_SETTINGS'    => 'Paramètres généraux',
 
+	// Display by groups
+	'PPDE_DISPLAY_GROUPS'             => 'Groupes autorisés',
+	'PPDE_DISPLAY_GROUPS_EXPLAIN'     => 'Seuls les membres des groupes cochés verront la partie don PayPal (lien « Faire un don », page de dons et statistiques des dons sur l’index).<br>Si aucun groupe n’est coché, tous les groupes sont concernés. La permission « Peut faire un don » reste nécessaire.',
+	'PPDE_LEGEND_DISPLAY_GROUPS'      => 'Affichage selon les groupes',
+
 	// Stats Donation settings
 	'PPDE_AMOUNT'                     => 'Montant',
 	'PPDE_DECIMAL_EXPLAIN'            => 'Utiliser le « . » comme symbole décimal.', // Note for translator: do not translate the decimal symbol

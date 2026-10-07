@@ -1,6 +1,7 @@
 {% INCLUDE 'overall_header.html' %}
 
 <h1>{{ lang('PPDE_PAYPAL_FEATURES') }}</h1>
+{% INCLUDE '@skouat_ppde/ppde_acp_head.html' %}
 
 <p>{{ lang('PPDE_PAYPAL_FEATURES_EXPLAIN') }}</p>
 
@@ -14,10 +15,10 @@
 
 <form id="ppde_settings" method="post" action="{{ U_ACTION }}">
 	<fieldset>
-		<legend>{{ lang('PPDE_LEGEND_REST_API') }}</legend>
+		<legend><i class="icon fa-paypal fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_REST_API') }}</legend>
 
 		<fieldset>
-			<legend>{{ lang('PPDE_REST_LIVE') }}</legend>
+			<legend><i class="icon fa-globe fa-fw" aria-hidden="true"></i> {{ lang('PPDE_REST_LIVE') }}</legend>
 			<dl>
 				<dt><label for="ppde_rest_client_id">{{ lang('PPDE_REST_CLIENT_ID') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_REST_CLIENT_ID_EXPLAIN') }}</span></dt>
 				<dd><input type="text" class="text" id="ppde_rest_client_id" name="ppde_rest_client_id" size="60" value="{{ PPDE_REST_CLIENT_ID }}"></dd>
@@ -33,7 +34,7 @@
 		</fieldset>
 
 		<fieldset>
-			<legend>{{ lang('PPDE_REST_SANDBOX') }}</legend>
+			<legend><i class="icon fa-flask fa-fw" aria-hidden="true"></i> {{ lang('PPDE_REST_SANDBOX') }}</legend>
 			<dl>
 				<dt><label for="ppde_sandbox_rest_client_id">{{ lang('PPDE_REST_CLIENT_ID') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_REST_CLIENT_ID_EXPLAIN') }}</span></dt>
 				<dd><input type="text" class="text" id="ppde_sandbox_rest_client_id" name="ppde_sandbox_rest_client_id" size="60" value="{{ PPDE_SANDBOX_REST_CLIENT_ID }}"></dd>
@@ -54,7 +55,7 @@
 			  data-hash="{{ PPDE_TEST_HASH }}"
 			  data-testing="{{ lang('PPDE_REST_TESTING') }}"
 			  data-error="{{ lang('PPDE_REST_TEST_HTTP_ERROR', '') }}">
-		<legend>{{ lang('PPDE_LEGEND_REST_TOOLS') }}</legend>
+		<legend><i class="icon fa-wrench fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_REST_TOOLS') }}</legend>
 
 		<dl>
 			<dt><label for="ppde_webhook_url">{{ lang('PPDE_WEBHOOK_URL') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_WEBHOOK_URL_EXPLAIN') }}</span></dt>
@@ -78,7 +79,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{{ lang('PPDE_LEGEND_SANDBOX_SETTINGS') }}</legend>
+		<legend><i class="icon fa-flask fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_SANDBOX_SETTINGS') }}</legend>
 		<dl>
 			<dt><label for="ppde_sandbox_enable">{{ lang('PPDE_SANDBOX_ENABLE') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_SANDBOX_ENABLE_EXPLAIN') }}</span></dt>
 			<dd><label><input type="radio" class="radio" id="ppde_sandbox_enable" name="ppde_sandbox_enable" value="1"{% if S_PPDE_SANDBOX_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
@@ -92,7 +93,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{{ lang('PPDE_LEGEND_IPN_AUTOGROUP') }}</legend>
+		<legend><i class="icon fa-users fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_IPN_AUTOGROUP') }}</legend>
 		<dl>
 			<dt><label for="ppde_ipn_autogroup_enable">{{ lang('PPDE_IPN_AG_ENABLE') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_IPN_AG_ENABLE_EXPLAIN') }}</span></dt>
 			<dd><label><input type="radio" class="radio" id="ppde_ipn_autogroup_enable" name="ppde_ipn_autogroup_enable" value="1"{% if S_PPDE_IPN_AG_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
@@ -114,7 +115,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{{ lang('PPDE_LEGEND_IPN_DONORLIST') }}</legend>
+		<legend><i class="icon fa-list fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_IPN_DONORLIST') }}</legend>
 		<dl>
 			<dt><label for="ppde_ipn_donorlist_enable">{{ lang('PPDE_IPN_DL_ENABLE') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_IPN_DL_ENABLE_EXPLAIN') }}</span></dt>
 			<dd><label><input type="radio" class="radio" id="ppde_ipn_donorlist_enable" name="ppde_ipn_donorlist_enable" value="1"{% if S_PPDE_IPN_DL_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
@@ -128,7 +129,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>{{ lang('PPDE_LEGEND_IPN_NOTIFICATION') }}</legend>
+		<legend><i class="icon fa-bell fa-fw" aria-hidden="true"></i> {{ lang('PPDE_LEGEND_IPN_NOTIFICATION') }}</legend>
 		<dl>
 			<dt><label for="ppde_ipn_notification_enable">{{ lang('PPDE_IPN_NOTIFICATION_ENABLE') ~ lang('COLON') }}</label><br><span>{{ lang('PPDE_IPN_NOTIFICATION_ENABLE_EXPLAIN') }}</span></dt>
 			<dd><label><input type="radio" class="radio" id="ppde_ipn_notification_enable" name="ppde_ipn_notification_enable" value="1"{% if S_PPDE_IPN_NOTIFICATION_ENABLE %} checked{% endif %}> {{ lang('YES') }}</label>
