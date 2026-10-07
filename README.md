@@ -79,5 +79,11 @@ Upgrading is therefore required. After updating the files, follow these steps to
     Feel free to [join](https://crwd.in/skouat-ppde) the project, and read this [Quick Translator Guide](https://github.com/Skouat/ext_paypal_donation/blob/develop-4.0.x/docs/crowdin.md).
   * You can also send your translations in the [PayPal Donation translation topic at phpBB.com](https://www.phpbb.com/customise/db/extension/paypal_donation_extension/support/topic/216046).
 
+## Changelog
+
+### 4.0.4
+  * Added: display of the donation features restricted to selected user groups (new setting `ppde_display_groups`, migration `v404_m1_display_groups`).
+  * Added: refreshed ACP layout (rounded panels, legends with icons, version badge).
+
 ## License
 [GNU General Public License v2](https://opensource.org/licenses/GPL-2.0)
